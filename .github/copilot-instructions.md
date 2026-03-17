@@ -1,0 +1,21 @@
+# Copilot Instructions
+
+- Repository is effectively empty (only .git present); treat any work as greenfield until real sources appear.
+- Always ask the user for the project goal, target runtime (e.g., Node, Python, .NET), and deployment surface before generating code.
+- Confirm package manager and tooling choices (npm/yarn/pnpm, pip/poetry/pipenv, dotnet CLI, etc.) instead of assuming defaults.
+- Propose a minimal, conventional directory layout for the chosen stack; avoid bespoke patterns unless the user confirms them.
+- Request the preferred testing framework and coverage expectations before scaffolding; do not invent ad-hoc test helpers.
+- Confirm formatting/linting standards (Prettier/ESLint/Black/ruff/dotnet format) and line-ending preference (LF vs CRLF) before writing many files.
+- When adding dependencies, prefer stable versions and record the exact commands used so the user can reproduce the environment.
+- Provide runnable build/test commands with each scaffolded stack; ensure commands are valid on Windows (current host), flagging any POSIX-specific steps.
+- Keep shell snippets portable; if GNU utilities or bash-specific features are needed, call that out and suggest Windows-friendly alternatives.
+- If initializing git hygiene, add a relevant .gitignore for the chosen stack (node_modules, .venv, bin/obj, etc.) after user approval.
+- Favor small, composable examples over large templates; keep initial code paths simple so the user can iterate quickly.
+- When creating configuration files (CI, lint, format), explain why each is included and link the main entry points inside the repo.
+- Avoid adding heavyweight services (databases, message brokers, containers) unless the user explicitly requests them; prefer mocks/stubs for samples.
+- Document any generated structure in README: prerequisites, install, build/test commands, and how to run a basic flow.
+- If secrets or credentials are required, insist on environment variables and provide a sample .env.example; never hardcode secrets.
+- Keep filenames and paths ASCII-only unless the user needs otherwise; follow Windows path constraints when suggesting directory names.
+- After code exists, update this file with stack-specific patterns (module structure, dependency injection style, logging, error handling).
+- When modifying or adding files, give the user a concise list of created/changed paths so they can review easily.
+- If uncertain about a requirement, pause and ask instead of guessing; this repo currently has no precedent to follow.
